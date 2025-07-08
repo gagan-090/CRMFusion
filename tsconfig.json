@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-native",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "noEmit": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src", "App.tsx", "index.js"]
+}

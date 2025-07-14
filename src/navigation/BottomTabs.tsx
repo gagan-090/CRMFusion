@@ -1,56 +1,63 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View, Text, StyleSheet } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import DashboardScreen from '../screens/DashboardScreen';
 import SmartDialerScreen from '../screens/SmartDialerScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
+import { ThemeContext } from '../context/ThemeContext';
+
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Tab.Navigator
       initialRouteName="Dashboard"
       screenOptions={({ route }) => {
         const routeName = route.name;
         let iconName = '';
+        let label = '';
+
         switch (routeName) {
           case 'Dashboard':
-            iconName = 'home';
+            iconName = 'view-dashboard-outline';
+            label = 'Dashboard';
             break;
           case 'SmartDialer':
-            iconName = 'call';
+            iconName = 'phone-dial-outline';
+            label = 'Dialer';
             break;
           case 'Settings':
-            iconName = 'settings';
+            iconName = 'cog-outline';
+            label = 'Settings';
             break;
           case 'Profile':
-            iconName = 'person-circle';
-            break;
-          default:
-            iconName = 'ellipse';
+            iconName = 'account-circle-outline';
+            label = 'Profile';
             break;
         }
-
-        const iconColorDefault = '#9e9e9e';
-        const iconColorFocused = '#43a047';
-        const bgColorDefault = '#f9f9f9';
-        const bgColorFocused = '#e6f4ea';
 
         return {
           headerShown: false,
           tabBarShowLabel: false,
-          tabBarStyle: styles.tabBar,
+          tabBarStyle: [styles.tabBar, { backgroundColor: theme.colors.tabBarBackground }],
           tabBarIcon: ({ focused }) => {
-            const iconColor = focused ? iconColorFocused : iconColorDefault;
-            const bgColor = focused ? bgColorFocused : bgColorDefault;
+            const iconColor = focused ? theme.colors.tabBarIconActive : theme.colors.tabBarIconInactive;
+            const bgColor = focused ? theme.colors.tabBarIconBackgroundActive : theme.colors.tabBarIconBackgroundInactive;
 
             return (
-              <View style={[styles.iconWrapper, { backgroundColor: bgColor }]}>
-                <Icon name={iconName} size={20} color={iconColor} />
+              <View style={styles.tabItem}>
+                <View style={[styles.iconCircle, { backgroundColor: bgColor }]}>
+                  <MaterialCommunityIcons name={iconName} size={28} color={iconColor} />
+                </View>
+                <Text style={[styles.iconLabel, { color: iconColor }]} numberOfLines={1}>
+                  {label}
+                </Text>
               </View>
             );
           },
@@ -68,32 +75,38 @@ const BottomTabs = () => {
 export default BottomTabs;
 
 const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   tabBar: {
-    height: 75,
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    elevation: 20,
+    height: 90,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    position: 'absolute',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -4 },
-    shadowOpacity: 0.05,
+    shadowOpacity: 0.1,
     shadowRadius: 10,
-    position: 'absolute',
+    elevation: 12,
+    paddingBottom: 10,
+    paddingTop: 6,
   },
-  iconWrapper: {
-    borderRadius: 40,
-    padding: 8,
-    alignItems: 'center',
+  tabItem: {
     justifyContent: 'center',
-    elevation: 6,
+    alignItems: 'center',
+  },
+  iconCircle: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  iconLabel: {
+    fontSize: 13,
+    fontWeight: '600',
   },
 });

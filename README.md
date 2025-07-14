@@ -99,3 +99,104 @@ To learn more about React Native, take a look at the following resources:
 =======
 # CRMFusion
 >>>>>>> 614e0388462bee3e4d5f1ef178dcc57ba0816ca1
+
+```
+CRMFusion
+├─ .bundle
+│  └─ config
+├─ .eslintrc.js
+├─ .prettierrc.js
+├─ .watchmanconfig
+├─ android
+│  ├─ app
+│  │  ├─ proguard-rules.pro
+│  │  └─ src
+│  │     ├─ debug
+│  │     │  └─ AndroidManifest.xml
+│  │     └─ main
+│  │        ├─ AndroidManifest.xml
+│  │        ├─ java
+│  │        │  └─ com
+│  │        │     └─ crmfusionapp
+│  │        │        ├─ MainActivity.kt
+│  │        │        └─ MainApplication.kt
+│  │        └─ res
+│  │           ├─ drawable
+│  │           │  └─ rn_edit_text_material.xml
+│  │           ├─ mipmap-hdpi
+│  │           │  ├─ ic_launcher.png
+│  │           │  └─ ic_launcher_round.png
+│  │           ├─ mipmap-mdpi
+│  │           │  ├─ ic_launcher.png
+│  │           │  └─ ic_launcher_round.png
+│  │           ├─ mipmap-xhdpi
+│  │           │  ├─ ic_launcher.png
+│  │           │  └─ ic_launcher_round.png
+│  │           ├─ mipmap-xxhdpi
+│  │           │  ├─ ic_launcher.png
+│  │           │  └─ ic_launcher_round.png
+│  │           ├─ mipmap-xxxhdpi
+│  │           │  ├─ ic_launcher.png
+│  │           │  └─ ic_launcher_round.png
+│  │           └─ values
+│  │              ├─ strings.xml
+│  │              └─ styles.xml
+│  ├─ gradle
+│  │  └─ wrapper
+│  │     ├─ gradle-wrapper.jar
+│  │     └─ gradle-wrapper.properties
+│  ├─ gradle.properties
+│  ├─ gradlew
+│  └─ gradlew.bat
+├─ app.json
+├─ App.tsx
+├─ babel.config.tsx
+├─ Gemfile
+├─ index.js
+├─ ios
+│  ├─ .xcode.env
+│  ├─ CRMFusionApp
+│  │  ├─ AppDelegate.swift
+│  │  ├─ Images.xcassets
+│  │  │  ├─ AppIcon.appiconset
+│  │  │  │  └─ Contents.json
+│  │  │  └─ Contents.json
+│  │  ├─ Info.plist
+│  │  ├─ LaunchScreen.storyboard
+│  │  └─ PrivacyInfo.xcprivacy
+│  ├─ CRMFusionApp.xcodeproj
+│  │  ├─ project.pbxproj
+│  │  └─ xcshareddata
+│  │     └─ xcschemes
+│  │        └─ CRMFusionApp.xcscheme
+│  └─ Podfile
+├─ jest.config.js
+├─ metro.config.js
+├─ package-lock.json
+├─ package.json
+├─ README.md
+├─ src
+│  ├─ assets
+│  │  ├─ icons
+│  │  └─ image
+│  ├─ components
+│  │  └─ LeadCard.tsx
+│  ├─ navigation
+│  │  ├─ AppNavigator.tsx
+│  │  └─ BottomTabs.tsx
+│  ├─ screens
+│  │  ├─ Auth
+│  │  │  ├─ LoginScreen.tsx
+│  │  │  └─ SignupScreen.tsx
+│  │  ├─ DashboardScreen.tsx
+│  │  ├─ LeadDetailScreen.tsx
+│  │  ├─ LeadListScreen.tsx
+│  │  ├─ ProfileScreen.tsx
+│  │  ├─ SettingsScreen.tsx
+│  │  └─ SmartDialerScreen.tsx
+│  └─ services
+│     ├─ authService.ts
+│     └─ firebase.ts
+└─ tsconfig.json
+
+```
